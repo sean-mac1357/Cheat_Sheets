@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="Styles/Git_CS.css">
+    <title>Git Cheat Sheet</title>
+</head>
+
+<body>
+    <h1>Git Cheat Sheet</h1>
+    <hr>
+    <p>This cheat sheet is a list of our most used Git commands, and it contains useful information for those who are
+        getting started.</p>
+    <hr>
+
+    <h3>Glossary</h3>
+    <table>
+        <tr>
+            <th>Keywords</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>git</td>
+            <td>Open-source distributed version-control system, used to store code in repositories</td>
+        </tr>
+        <tr>
+            <td>GitHub, GitLab and Bitbucket</td>
+            <td>Platform for hosting and collaborating on Git repositories</td>
+        </tr>
+        <tr>
+            <td>staging</td>
+            <td>Proposed files/directories that you'd like to commit</td>
+        </tr>
+        <tr>
+            <td>commit</td>
+            <td>Saving all staged files/directories to your local repository</td>
+        </tr>
+        <tr>
+            <td>branch</td>
+            <td>An independent line of development, so you can develop features isolated from each other. Master branch
+                is the default.</td>
+        </tr>
+        <tr>
+            <td>clone</td>
+            <td>Local version of a repository, including all commits and branches</td>
+        </tr>
+        <tr>
+            <td>remote</td>
+            <td>Common repository on eg. Github that all team members to keep that changes in sync with</td>
+        </tr>
+        <tr>
+            <td>fork</td>
+            <td>Copy of a repository owned by a different user</td>
+        </tr>
+        <tr>
+            <td>pull request</td>
+            <td>A method of submitting contributions to a repository</td>
+        </tr>
+        <tr>
+            <td>HEAD</td>
+            <td>Represents your current working directory</td>
+        </tr>
+    </table>
+
+    <h3>Configuration</h3>
+    <table>
+        <tr>
+            <th>Key/Command</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>git config --global user.name [name]</code></td>
+            <td>Set author name to be used for all commits</td>
+        </tr>
+        <tr>
+            <td><code>git config --global user.email [email]</code></td>
+            <td>Set author email to be used for all commits</td>
+        </tr>
+        <tr>
+            <td><code>git config color.ui true</code></td>
+            <td>Enables helpful colorization of command line output</td>
+        </tr>
+    </table>
+
+    <h3>Core Commands</h3>
+    <table>
+        <tr>
+            <th>Key/Command</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>git init [directory]</code></td>
+            <td>Creates new local repository</td>
+        </tr>
+        <tr>
+            <td><code>git clone [repo]</code></td>
+            <td>Creates local copy of remote repository</td>
+        </tr>
+        <tr>
+            <td><code>git add [directory]</code></td>
+            <td>Stages specific [directory]</td>
+        </tr>
+        <tr>
+            <td><code>git add [file]</code></td>
+            <td>Stages specific [file]</td>
+        </tr>
+        <tr>
+            <td><code>git add -A</code></td>
+            <td>Stages all changed files</td>
+        </tr>
+        <tr>
+            <td><code>git add .</code></td>
+            <td>Stages new and changed files, NOT deleted files</td>
+        </tr>
+        <tr>
+            <td><code>git add -u</code></td>
+            <td>Stages changed and deleted files, NOT new files</td>
+        </tr>
+        <tr>
+            <td><code>git commit -m "[message]"</code></td>
+            <td>Commit everything that is staged</td>
+        </tr>
+        <tr>
+            <td><code>git status</code></td>
+            <td>Shows status of changes as untracked, modified or staged</td>
+        </tr>
+    </table>
+
+    <h3>Synchronization of Changes</h3>
+    <table>
+        <tr>
+            <th>Key/Command</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>git fetch</code></td>
+            <td>Downloads all history from the remote branches</td>
+        </tr>
+        <tr>
+            <td><code>git merge</code></td>
+            <td>Merges remote branch into current local branch</td>
+        </tr>
+        <tr>
+            <td><code>git pull</code></td>
+            <td>Downloads all history from the remote branch and merges into the current local branch</td>
+        </tr>
+        <tr>
+            <td><code>git push</code></td>
+            <td>Pushes all the commits from the current local branch to its remote equivalent</td>
+        </tr>
+    </table>
+
+    <p><em>Tip: <code>git pull</code> is the combination of <code>git fetch</code> and
+            <code>git merge</code></em></p>
+    <h3>Undo Changes</h3>
+    <table>
+        <tr>
+            <th>Key/Command</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>git checkout -- [file]</code></td>
+            <td>Replace file with contents from HEAD</td>
+        </tr>
+        <tr>
+            <td><code>git revert [commit]</code></td>
+            <td>Create new commit that undoes changes made in [commit], then apply it to the current branch</td>
+        </tr>
+        <tr>
+            <td><code>git reset [file]</code></td>
+            <td>Remove [file] from staging area</td>
+        </tr>
+        <tr>
+            <td><code>git reset --hard HEAD</code></td>
+            <td>Removes all local changes in working directory</td>
+        </tr>
+        <tr>
+            <td><code>git reset --hard [commit]</code></td>
+            <td>Reset your HEAD pointer to previous commit and discard all changes since then</td>
+        </tr>
+    </table>
+
+    <h3>Branches</h3>
+    <table>
+        <tr>
+            <th>Key/Command</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>git branch [branch]</code></td>
+            <td>Create a new branch</td>
+        </tr>
+        <tr>
+            <td><code>git checkout [branch]</code></td>
+            <td>Switch to that branch</td>
+        </tr>
+        <tr>
+            <td><code>git checkout [branch] -b</code></td>
+            <td>Create and checkout new branch</td>
+        </tr>
+        <tr>
+            <td><code>git merge [branch]</code></td>
+            <td>Merge [branch] into current branch</td>
+        </tr>
+        <tr>
+            <td><code>git branch -d [branch]</code></td>
+            <td>Deletes the [branch]</td>
+        </tr>
+        <tr>
+            <td><code>git push origin [branch]</code></td>
+            <td>Push [branch] to remote</td>
+        </tr>
+        <tr>
+            <td><code>git branch</code></td>
+            <td>Lists local branches</td>
+        </tr>
+        <tr>
+            <td><code>git branch -r</code></td>
+            <td>Lists remote branches</td>
+        </tr>
+        <tr>
+            <td><code>git branch -a</code></td>
+            <td>Lists local and remote branches</td>
+        </tr>
+    </table>
+
+    <h3>History</h3>
+    <table>
+        <tr>
+            <th>Key/Command</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>git log</code></td>
+            <td>Lists version history for the current branch</td>
+        </tr>
+        <tr>
+            <td><code>git log --author=[name]</code></td>
+            <td>Lists version history for the current branch from certain author</td>
+        </tr>
+        <tr>
+            <td><code>git log --oneline</code></td>
+            <td>Lists compressed version history for the current branch</td>
+        </tr>
+        <tr>
+            <td><code>git show [commit]</code></td>
+            <td>Outputs metadata and content changes of the specified commit</td>
+        </tr>
+        <tr>
+            <td><code>git blame [file]</code></td>
+            <td>Shows who changed what and when in file</td>
+        </tr>
+    </table>
+
+    <h3>Gitignore</h3>
+    <p>You can list files/directories that you want to explicitely exclude from Git in a <code>.gitignore</code> file.
+        This file should be placed at the root of your repository.</p>
+    <p>It is noted that people usually exclude dependency caches, such as <code>node_modules</code>, system files, such
+        as <code>.DS_Store</code>, among others.</p>
+    <p>You can see the <code>.gitignore</code> file of
+        <a href="https://github.com/github/gitignore">more examples</a> provided by GitHub.
+    </p>
+    <h3>Platforms</h3>
+    <p>The following platforms can be used to host your repositories.</p>
+    <table>
+        <tr>
+            <th>Platform</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td><a href="https://github.com">GitHub</a></td>
+            <td>Free</td>
+        </tr>
+        <tr>
+            <td><a href="https://gitlab.com" rel="nofollow">GitLab</a></td>
+            <td>Free</td>
+        </tr>
+        <tr>
+            <td><a href="https://bitbucket.org" rel="nofollow">Bitbucket</a></td>
+            <td>Free</td>
+        </tr>
+    </table>
+
+    <h3>Graphical User Interface (GUI)</h3>
+    <p>Is the command-line interface not for you? Try one of the following clients.</p>
+    <table>
+        <tr>
+            <th>Clients</th>
+            <th>Operational System</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td><a href="https://desktop.github.com">Github</a></td>
+            <td>Mac and Windows</td>
+            <td>Free</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.sourcetreeapp.com" rel="nofollow">Source Tree</a></td>
+            <td>Mac and Windows</td>
+            <td>Free</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.git-tower.com" rel="nofollow">Tower</a></td>
+            <td>MacOS and Windows</td>
+            <td>$69 to $99</td>
+        </tr>
+    </table>
+
+    <h3>Resources</h3>
+    <ul>
+        <li><a href="https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc" rel="nofollow">Learn Git
+                concepts, not commands</a></li>
+        <li><a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork">Syncing
+                a Fork</a></li>
+        <li><a href="https://github.com/k88hudson/git-flight-rules">Flight rules for Git</a> - What to do when things go
+            wrong...</li>
+        <li><a href="https://book.git-scm.com/book/en/v2" rel="nofollow"><em>Pro Git</em></a></li>
+        <li><a href="https://guides.github.com/introduction/flow/">Git Flow</a></li>
+        <li><a href="https://blog.red-badger.com/2016/11/29/gitgithub-in-plain-english" rel="nofollow">Git and Github in
+                Plain English</a></li>
+        <li><a href="https://www.katacoda.com/courses/git" rel="nofollow">Learn Git Version Control using Interactive
+                Browser-Based Scenarios</a></li>
+    </ul>
+
+    <script type="text/javascript" src="./some/path/main.js"></script>
+</body>
+
+</html>
